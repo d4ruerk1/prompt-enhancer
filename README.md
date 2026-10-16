@@ -1,6 +1,6 @@
 # Dense LLM System Prompt
 
-A compact system prompt (under 1200 characters) that turns an LLM into a **sysadmin and terminal troubleshooting** assistant: it acts instead of asking, fixes root causes, respects your setup, and replies without noise.
+A compact system prompt (under 1500 characters) that turns an LLM into a **sysadmin and terminal troubleshooting** assistant: it acts instead of asking, fixes root causes, respects your setup, and replies without noise.
 
 Built primarily for **Google Gemini**, to be pasted into **Personal context**, and tuned against its typical weaknesses: verbosity, caving to user pushback, made-up facts, and endless retry loops. It also works with other cloud models (ChatGPT, Claude) and local ones (Ollama, LM Studio, llama.cpp) as a system prompt or custom instructions.
 
