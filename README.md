@@ -1,49 +1,50 @@
 # Dense LLM System Prompt
 
-A compact system prompt (under 1500 characters) that turns an LLM into a **sysadmin and terminal troubleshooting** assistant: it acts instead of asking, fixes root causes, respects your setup, and replies without noise.
+A high-density system prompt (<1,500 characters) engineered for **autonomous sysadmin workflows and terminal troubleshooting**[cite: 2]. It eliminates conversational filler, resolves root causes without breaking existing configurations, and prioritizes direct action over delegation[cite: 2].
 
-Built primarily for **Google Gemini**, to be pasted into **Personal context**, and tuned against its typical weaknesses: verbosity, caving to user pushback, made-up facts, and endless retry loops. It also works with other cloud models (ChatGPT, Claude) and local ones (Ollama, LM Studio, llama.cpp) as a system prompt or custom instructions.
-
----
-
-## What it does
-
-### Operational autonomy
-* **Acts, doesn't delegate:** uses available tools instead of asking you to check. Without tools, it gives you a single minimal **read-only** block and fixes things based on its output.
-* **Detects the environment:** identifies the OS and shell on its own.
-* **Minimal questions:** asks only once, and only what no command can reveal. Otherwise it makes an assumption and states it.
-* **Task handling:** follow-ups continue the current issue; new issues are queued, with none lost or mixed up.
-
-### Fix quality
-* **Root causes:** solves problems for good, with creative solutions when needed.
-* **Respects your setup:** studies the whole chain before acting, changes the bare minimum, and redesigns only when asked. Elsewhere it sticks to modest optimizations.
-* **Clean edits:** keeps your style and picks the most efficient, robust, and secure option and placement.
-
-### Factual reliability
-* **Verifiable sources:** for volatile facts (versions, prices, policies, dates) it uses official or named sources, never asserts or denies anything unverified, and flags conflicting sources.
-* **Anti-sycophancy:** when challenged, it rechecks, but yields only to concrete evidence.
-* **Images:** uses only the legible parts; otherwise it asks for the text.
-
-### Safety
-* **Targeted backups:** backs up only critical files and deletes the backups once the result is verified.
-* **Destructive actions:** removes without asking only what its own change replaces; anything else needs one confirmation, unless pre-approved.
-
-### Output format
-* **Commands:** one plain sentence (current or queued step and real risk, no labels) followed by a single non-interactive copy-paste block.
-* **Long edits:** the full file with its path.
-* **Options:** the best one first with the reason why, alternatives on a single line.
-* **Style:** concise, in your language, intuition first, math as rendered LaTeX. No em dashes, intros, or closing offers.
-
-### Error handling
-* **No loops:** on failure it diagnoses, retries **once** with a different approach, then reports the blocker.
-* **Mandatory verification:** considers the job done only when the output confirms it.
+Optimized for **Google Gemini** (via *Personal context* / *Instructions*) to mitigate verbosity, sycophancy, hallucinated facts, and repetitive retry loops[cite: 2]. Fully compatible with cloud providers (ChatGPT, Claude) and local runtimes (Ollama, LM Studio, llama.cpp)[cite: 2].
 
 ---
 
-## Download and usage
+## Key Capabilities
 
-1. Download the prompt from the **[Releases]** section.
-2. **Gemini:** open *Settings → Personal context* (*Instructions for Gemini*) and paste the text.
-3. **Other models:** paste it as the system prompt (local models) or into custom instructions (cloud services).
+### 1. Operational Autonomy
+* **Tool-first inspection:** Proactively gathers facts using integrated tools instead of asking the user to run checks[cite: 2].
+* **Zero-tool fallback:** Provides a single, minimal **read-only** command block to inspect system state when tools are unavailable[cite: 2].
+* **Environment awareness:** Detects host OS and active shell automatically[cite: 2].
+* **Targeted questioning:** Prompts the user only when required details cannot be inspected programmatically; otherwise, proceeds with stated assumptions[cite: 2].
+* **Context preservation:** Resolves follow-ups in order while cleanly queuing new issues[cite: 2].
 
-> The prompt is written in English to maximize model adherence, but replies come back in whatever language you write in.
+### 2. Surgical Remediation
+* **Root-cause focus:** Delivers permanent, robust fixes rather than superficial patches[cite: 2].
+* **Setup preservation:** Inspects dependent chains, applies the minimum necessary edits, and preserves existing formatting and conventions[cite: 2].
+* **Controlled scope:** Refactors or redesigns only when explicitly requested[cite: 2].
+
+### 3. Factual Reliability & Rigor
+* **Source-backed assertions:** Confirms volatile data (versions, pricing, docs, dates) using primary sources, marking conflicts clearly[cite: 2].
+* **Anti-sycophancy:** Rechecks findings upon user pushback but yields exclusively to empirical evidence[cite: 2].
+* **Visual parsing:** Extracts legible content from terminal/error images, requesting raw text if readability is compromised[cite: 2].
+
+### 4. Safety Guardrails
+* **Ephemeral backups:** Backs up critical targets prior to execution and removes backup copies immediately after verification[cite: 2].
+* **Destructive safety:** Executes non-destructive or replacement tasks automatically, requiring explicit confirmation only for unrelated destructive operations[cite: 2].
+
+### 5. Deterministic Output Format
+* **Direct commands:** Outputs exactly one explanatory sentence (outlining task and operational risk) followed by a single copy-pasteable, non-interactive command block[cite: 2].
+* **File replacements:** Emits complete file contents with explicit path definitions for multi-line configurations[cite: 2].
+* **Option ranking:** Highlights the recommended solution and its justification first; summarizes remaining alternatives on a single line[cite: 2].
+* **Noise-free syntax:** Strips intros, conversational closings, and em dashes[cite: 2]. Renders math strictly in LaTeX[cite: 2].
+
+### 6. Failure Recovery
+* **Loop breaker:** Halts repetitive loops by retrying an alternative strategy exactly once before escalating the blocker[cite: 2].
+* **Verified resolution:** Tasks are considered complete only after execution outputs validate the fix[cite: 2].
+
+---
+
+## Installation & Usage
+
+1. Copy the raw prompt from the latest **[Releases]**[cite: 2].
+2. **Google Gemini:** Navigate to **Settings → Personal context** (*Instructions for Gemini*) and paste the prompt[cite: 2].
+3. **Other Models:** Apply as the system prompt (local engines like Ollama/llama.cpp) or within custom instruction fields (ChatGPT, Claude)[cite: 2].
+
+> *Note: While the prompt is written in English to ensure optimal instruction adherence, the assistant naturally responds in your input language[cite: 2].*
