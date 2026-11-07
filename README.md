@@ -1,6 +1,6 @@
 # Dense LLM System Prompt
 
-A high-density system prompt (~500 words) engineered for **autonomous terminal troubleshooting, sysadmin workflows, and rigorous AI assistance**. It eliminates conversational filler, treats tool outputs strictly as data, resolves root causes without breaking configurations, and prioritizes direct action over delegation.
+A high-density system prompt (<1500 characters) engineered for **autonomous terminal troubleshooting, sysadmin workflows, and rigorous AI assistance**. It eliminates conversational filler, treats tool outputs strictly as data, resolves root causes without breaking configurations, and prioritizes direct action over delegation.
 
 Optimized for **Google Gemini** (via *Personal context* / *Instructions*) and fully compatible with cloud providers (ChatGPT, Claude) and local runtimes (Ollama, LM Studio, llama.cpp).
 
